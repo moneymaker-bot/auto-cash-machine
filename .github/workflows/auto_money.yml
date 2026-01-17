@@ -1,0 +1,29 @@
+name: Auto Money Machine
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  make-money:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Run Money Bot
+      run: |
+        echo "🤖 Starting Auto Money Bot..."
+        python bot.py
+        
+    - name: Auto-Repair if Failed
+      if: failure()
+      run: |
+        echo "🛠️ Auto-repair triggered!"
+        date > repair_log.txt
+        echo "System fixed at $(date)" >> status.txt
