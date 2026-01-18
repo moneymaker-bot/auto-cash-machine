@@ -1,0 +1,10 @@
+{
+  "youtube": {
+    "client_id": "932298172987-sok7pbvqun1c0s3r18fp0eomk347mn07.apps.googleusercontent.com",
+    "redirect_uri": "http://localhost:3000/oauth2callback",
+    "project_id": "auto-money-bot"
+  },
+  "clickbank": {
+    "id": "autocashai"
+  }
+}
